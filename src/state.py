@@ -17,7 +17,7 @@ class DrafterState(BaseModel):
     supporting_docs:list[str]= Field(default_factory=list)
 
 class ApprovalState(BaseModel):
-    approval_status:Literal["Pending","Approved","Rejected"]="Pending"
+    approval_status:Literal["Pending","Approved","Rejected"]| None= None
     feedback:str| None= None
 
 class ReviewState(BaseModel):
