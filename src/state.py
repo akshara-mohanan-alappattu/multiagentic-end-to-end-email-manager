@@ -7,14 +7,18 @@ class InputEmail(BaseModel):
     email_recipients:list[str]= Field(default_factory=list)
     email_sub:str
 
-class ClassifyAndSummary(BaseModel):
-    category:Literal["ACADEMICS","PROGRAMME"]| None= None
+class IdentifierState(BaseModel):
+    category:Literal["ACADEMICS","PROGRAMME","GENERAL"]| None= None
     summary:str| None= None
+    data_retreival_required:bool= False
+    query_for_retreival:str |None= None
+
+class DataRetreivalState(BaseModel):
+    retrieved_data:list= Field(default_factory=list)
 
 class DrafterState(BaseModel):
     draft:str| None= None
     draft_version:int= 1
-    supporting_docs:list[str]= Field(default_factory=list)
 
 class ApprovalState(BaseModel):
     approval_status:Literal["Pending","Approved","Rejected"]| None= None
@@ -24,6 +28,7 @@ class ReviewState(BaseModel):
     review_required:bool= False
     issues:list[str]= Field(default_factory=list)
     recommendations:list[str]= Field(default_factory=list)
+    rejection_type:Literal["DATA_ISSUE","DRAFT_ISSUE"] |None= None
     review_count:int= Field(
         ge=0,
         le=3,
@@ -38,7 +43,8 @@ class ExecutionState(BaseModel):
 class AgentState(BaseModel):
     mailbox:str
     input:InputEmail
-    classify_and_summarise:ClassifyAndSummary |None = None
+    contents_identified:IdentifierState |None = None
+    retreived_data:DataRetreivalState |None= None
     draft:DrafterState | None= None
     human_approval:ApprovalState | None= None
     review:ReviewState | None= None

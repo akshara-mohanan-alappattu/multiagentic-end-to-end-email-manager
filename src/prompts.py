@@ -16,3 +16,9 @@ def IdentifierPrompt():
     }
         ''') 
     return prompt
+
+def AcademicPrompt():
+    prompt=SystemMessage(content='''You are an intelligent email reply drafter. 
+            Generate an email as reply to summary generated.
+            Details of academic courses offered by ANC institute has to be taken only from the data stored.
+            ''')
