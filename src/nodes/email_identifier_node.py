@@ -19,7 +19,11 @@ def analyse_identify_function(state:AgentState):
         response_at_identifier=LlmCall.invoke(identifier_llm_input)
         extracted_content=json_content_extractor(response_at_identifier)
         identifier_output=json.loads(extracted_content)
-        return {"summary":identifier_output["summary_generated"],"category":identifier_output["category"]}
+        return {"summary":identifier_output["summary_generated"],
+                "category":identifier_output["category"],
+                "data_retreival_required":identifier_output["data_retreival_required"],
+                "query_for_retreival":identifier_output["query_for_retreival"]
+                }
     except Exception as e:
         print(f"error while identifying :{e}")
         raise
