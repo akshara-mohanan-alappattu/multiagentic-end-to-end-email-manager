@@ -41,7 +41,7 @@ class ExecutionState(BaseModel):
     sent:bool=False
 
 class AgentState(BaseModel):
-    mailbox:str
+    # mailbox:str
     input:InputEmail
     contents_identified:IdentifierState |None = None
     retreived_data:DataRetreivalState |None= None
