@@ -23,7 +23,14 @@ def IdentifierPrompt():
     return prompt
 
 def AcademicPrompt():
-    prompt=SystemMessage(content='''You are an intelligent email reply drafter. 
-            Generate an email as reply to summary generated.
-            Details of academic courses offered by ANC institute has to be taken only from the data stored.
-            ''')
+    prompt=SystemMessage(content='''You are an intelligent email drafter. 
+                             You have summary of an email and data required to answer the mail.
+                             Draft a reply email to this mail keeping formal tone.''')
+    return prompt
+
+def GeneralPrompt():
+    prompt=SystemMessage(content='''You are a professional email drafter.
+                                    Draft a reply email to the input email based on its summary.  ''')
+    return prompt
+
+        
