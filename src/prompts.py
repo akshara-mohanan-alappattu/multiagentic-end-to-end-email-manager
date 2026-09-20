@@ -11,6 +11,7 @@ def IdentifierPrompt():
        (1)If data is required, answer "Yes". Return "No" otherwise. Only give binary response here.
     4. If additional data is required to answer email, then what is that data it requires. The title of data required has to be specified as query_for_retreival.
     The final output should be a dictionary with "category", "summary_generated", "data_retreival_required" and "query_for_retreival" as the keys.
+    Do not retrieve any information yourself.
     
     Example
     {
