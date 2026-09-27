@@ -1,3 +1,22 @@
 from src.state import AgentState
-def programme_email_drafter(state:AgentState)
-    pass
+from src.prompts import ProgrammePrompt
+from langchain_groq import ChatGroq
+from dotenv import load_dotenv
+load_dotenv()
+
+llm_at_drafter=ChatGroq(
+        model="openai/gpt-oss-120b",
+        temperature=0.3
+        )
+
+def programme_email_drafter(state:AgentState):
+    try:
+        email_summary=state.contents_identified.summary
+        data_for_drafting=state.retreive_data.retreived_data[0]
+        prompt=ProgrammePrompt()
+        prg_llm_input=[prompt,email_summary,data_for_drafting]
+        response_at_prg=llm_at_drafter.invoke(prg_llm_input)
+        return{"draft":response_at_prg.content} 
+    except Exception as e:
+        print(f"error while drafting :{e}")
+        raise
