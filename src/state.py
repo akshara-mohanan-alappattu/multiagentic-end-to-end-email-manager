@@ -14,7 +14,7 @@ class IdentifierState(BaseModel):
     query_for_retreival:str |None= None
 
 class DataRetreivalState(BaseModel):
-    retrieved_data:list= Field(default_factory=list)
+    retreived_data:list= Field(default_factory=list)
 
 class DrafterState(BaseModel):
     draft:str| None= None
@@ -44,7 +44,7 @@ class AgentState(BaseModel):
     # mailbox:str
     input:InputEmail
     contents_identified:IdentifierState |None = None
-    retreived_data:DataRetreivalState |None= None
+    retreive_data:DataRetreivalState |None= None
     draft:DrafterState | None= None
     human_approval:ApprovalState | None= None
     review:ReviewState | None= None
