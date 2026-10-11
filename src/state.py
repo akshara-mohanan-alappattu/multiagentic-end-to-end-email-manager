@@ -17,15 +17,15 @@ class DataRetreivalState(BaseModel):
     retreived_data:list= Field(default_factory=list)
 
 class DrafterState(BaseModel):
-    draft:str| None= None
+    draft_email:str| None= None
     draft_version:int= 1
 
 class ApprovalState(BaseModel):
     approval_status:Literal["Pending","Approved","Rejected"]| None= None
-    feedback:str| None= None
-
-class ReviewState(BaseModel):
+    human_feedback:str| None= None
     review_required:bool= False
+    
+class ReviewState(BaseModel):
     issues:list[str]= Field(default_factory=list)
     recommendations:list[str]= Field(default_factory=list)
     rejection_type:Literal["DATA_ISSUE","DRAFT_ISSUE"] |None= None

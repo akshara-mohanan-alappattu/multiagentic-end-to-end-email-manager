@@ -9,7 +9,7 @@ llm_at_drafter=ChatGroq(
         temperature=0.3
         )
 
-def general_emai_drafter(state:AgentState):
+def general_email_drafter(state:AgentState):
     try:
         email_summary=state.contents_identified.summary
         prompt=GeneralPrompt()

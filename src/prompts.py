@@ -25,7 +25,7 @@ def IdentifierPrompt():
 
 def AcademicPrompt():
     prompt=SystemMessage(content='''You are an intelligent email drafter. 
-                             You have summary of an email and data required to answer the mail.
+                             You have summary of an email and data required to answer the mail. If available, use the feedback and recommendations.
                              Draft a reply email in to this mail keeping formal tone in maximum 50 words. 
                              Draft reply should be precise and direct information.
                              Do not add Opinions or commentary''')
@@ -42,8 +42,24 @@ def GeneralPrompt():
 
 def ProgrammePrompt():
     prompt=SystemMessage(content='''You are an intelligent email drafter. 
-                             You have summary of an email and data required to answer the mail.
+                             You have summary of an email and data required to answer the mail. If available, use the feedback and recommendations.
                              Draft a reply email in to this mail keeping formal tone in maximum 50 words. 
                              Draft reply should be precise and direct information.
                              Do not add Opinions or commentary''')
     return prompt
+def ReviewPrompt():
+    prompt=SystemMessage(content='''Your taskes are:
+    1. Analyse the email drafted based on the feedback received.Find the issue with the email. 
+    2. What are recommendations for improving the drafted email.
+    3. Identify the exact reason behind rejecting this email: 
+        a. Data issue: Wrong data provided in the draft.
+        b. Draft issue: Wrong structuring of draft.
+    4. How many time the same mail got rejection.
+    The final output should be a dictionary with "issues","recommendations","rejection_type","review_count"
+    Example
+    {"issues":<issues>,
+    "recommendations":<recommendations>,
+    "rejection_type":<rejection_type>,
+    "review_count":<>
+    }
+    ''')

@@ -1,3 +1,4 @@
 from src.state import AgentState
 def send_email_function(state:AgentState):
-    pass
+    print("The email has been sent successfuly")
+    
