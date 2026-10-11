@@ -3,7 +3,7 @@ from langgraph.types import interrupt
 def call_human_approval(state: AgentState):
     draft=state.draft.draft_email
     human_decision=interrupt({
-        "question":"Approve or Reject the drfat given below:",
+        "question":"Approve or Reject the draft given below:",
         "draft":draft,
         "instructions":("enter decision as 'approved' or 'rejected',"
                         "along with any feedback.")

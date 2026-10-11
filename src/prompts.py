@@ -17,7 +17,7 @@ def IdentifierPrompt():
     {
         "category": <category>
         "summary_generated": <summary_generated>
-        "data_retreival_required":<data_retreival_required>
+        "data_retreival_required":<bool>
         "query_for_retreival":<query_for_retreival>
     }
         ''') 
@@ -60,6 +60,7 @@ def ReviewPrompt():
     {"issues":<issues>,
     "recommendations":<recommendations>,
     "rejection_type":<rejection_type>,
-    "review_count":<>
+    "review_count":<count>
     }
     ''')
+    return prompt

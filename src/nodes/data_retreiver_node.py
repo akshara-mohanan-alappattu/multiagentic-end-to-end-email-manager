@@ -20,7 +20,11 @@ def data_retreiver_function(state:AgentState):
         else:
             retreived_content=None
         return{
-            "retreive_data":[retreived_content] if retreived_content else []
+            "retreive_data":{
+                "retreived_data": (
+                    [retreived_content] if retreived_content else []
+                )
+            }
         }
 
     finally:

@@ -62,17 +62,17 @@ checkpointer=InMemorySaver()
 app=graph.compile(checkpointer=checkpointer)
 
 config={
-    "configuarable":{
+    "configurable":{
         "thread_id":"email_001"
     }
 }
 
 test_state=AgentState(
     input=InputEmail(    
-        email_body="I want to apply for Applied Data Science offered by ANS institute. Kindly let me know the opening date to apply?",
+        email_body="I would like to apply for the Professional Networking Branch program.I want to know fees of this program. Please help me in this.",
         email_sender="sender@gmail.com",
         email_recipients=["recipient@gmail.com"],
-        email_sub="opening date to apply for Applied Data Science course"))
+        email_sub="Professional Networking Branch program"))
 
 result=app.invoke(test_state,config=config)
 
@@ -90,12 +90,12 @@ while "__interrupt__" in result:
     print(interrupt_data["instructions"])
     print("\n=====================================================================")
     while True:
-        decision=input("\nEnter Your Decision Here: Approved or Rejected").strip().lower()
+        decision=input("\nEnter Your Decision Here: Approved or Rejected: ").strip().lower()
         if decision in ["approved","rejected"]:
             break
         else:
             print("Invalid Output")
-    feedback=input("Suggest any feedback for improvement").strip()
+    feedback=input("Suggest any feedback for improvement: ").strip()
     if feedback=="":
         feedback=None
 
