@@ -29,11 +29,6 @@ class ReviewState(BaseModel):
     issues:list[str]= Field(default_factory=list)
     recommendations:list[str]= Field(default_factory=list)
     rejection_type:Literal["DATA_ISSUE","DRAFT_ISSUE"] |None= None
-    review_count:int= Field(
-        ge=0,
-        le=3,
-        description="This is the number of times the human reject the draft email and reviewer reviews it for improvement"
-        )
 
 class ExecutionState(BaseModel):
     status:str="processing"

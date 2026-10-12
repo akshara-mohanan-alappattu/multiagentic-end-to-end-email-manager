@@ -1,5 +1,5 @@
 # condition No.1 : at identifier, the graph goes to the data retreiver 
-# is data is required to be retreived, other wise goes to general drafter
+# if data is required to be retreived, other wise goes to general drafter
 
 from src.state import AgentState
 def condition_at_identifier(state:AgentState):

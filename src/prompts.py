@@ -54,13 +54,11 @@ def ReviewPrompt():
     3. Identify the exact reason behind rejecting this email: 
         a. Data issue: Wrong data provided in the draft.
         b. Draft issue: Wrong structuring of draft.
-    4. How many time the same mail got rejection.
-    The final output should be a dictionary with "issues","recommendations","rejection_type","review_count"
+    The final output should be a dictionary with "issues","recommendations","rejection_type"
     Example
     {"issues":<issues>,
     "recommendations":<recommendations>,
-    "rejection_type":<rejection_type>,
-    "review_count":<count>
+    "rejection_type":<rejection_type>
     }
     ''')
     return prompt
