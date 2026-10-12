@@ -6,7 +6,7 @@ llm=ChatGroq(
         model="openai/gpt-oss-120b",
         temperature=0.3
         )
-llm_at_reviewer=llm.with_structured_output(ReviewState)
+llm_at_reviewer=llm.with_structured_output(ReviewState, method="json_schema")
 
 def call_reviewer(state:AgentState):
     """
