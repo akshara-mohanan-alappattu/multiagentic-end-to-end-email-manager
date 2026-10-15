@@ -26,16 +26,16 @@ def IdentifierPrompt():
 def AcademicPrompt():
     prompt=SystemMessage(content='''You are an intelligent email drafter. 
                              You have summary of an email and data required to answer the mail. If available, use the feedback and recommendations.
-                             Draft a reply email in to this mail keeping formal tone in maximum 50 words. 
-                             Draft reply should be precise and direct information.
+                             Draft a reply email to this mail keeping formal tone in maximum 50 words. 
+                             Draft reply should be precise and direct information. If available, use feedback received and recommendations for drafting the mail.
                              Do not add Opinions or commentary''')
     return prompt
 
 def GeneralPrompt():
     prompt=SystemMessage(content='''You are a professional email drafter.
                                     Draft a reply email to the input email based on its summary.
-                                    Draft a reply email in to this mail keeping formal tone in maximum 30 words. 
-                                    Draft reply should be precise and direct information.
+                                    Draft a reply email to this mail keeping formal tone in maximum 30 words. 
+                                    Draft reply should be precise and direct information. If available, use feedback received and recommendations for drafting the mail.
                                     Do not add Opinions or commentary  ''')
     return prompt
 
@@ -49,12 +49,12 @@ def ProgrammePrompt():
     return prompt
 def ReviewPrompt():
     prompt=SystemMessage(content='''Your taskes are:
-    1. Analyse the email drafted based on the feedback received.Find the issue with the email. 
-    2. What are recommendations for improving the drafted email.
-    3. Identify the exact reason behind rejecting this email: 
-        a. Data issue: Wrong data provided in the draft.
-        b. Draft issue: Wrong structuring of draft.
-    The final output should be a dictionary with "issues","recommendations","rejection_type"
+    1. Analyse the email drafted based on the feedback received.List the issue with the email. 
+    2. Suggest recommendations for improving the drafted email.
+    3. Identify the exact reason behind rejecting this email and Categorise reason to reject into 2 categories strictly based on feedback: 
+        a. Data issue: The email has wrong data.
+        b. Draft issue: The email has wrong structure.
+    The final output should be a dictionary with "issues","recommendations","rejection_type". Do not use any tool for this. 
     Example
     {"issues":<issues>,
     "recommendations":<recommendations>,
